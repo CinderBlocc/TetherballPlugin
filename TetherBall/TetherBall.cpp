@@ -15,6 +15,7 @@ void TetherBall::CheckSwap()
 	ServerWrapper server = GetCurrentGameState();
 	if(server.IsNull()) return;
     GameSettingPlaylistWrapper GSPW = server.GetPlaylist();
+    if(GSPW.memory_address == NULL) return;
     if(!gameWrapper->IsInFreeplay() && GSPW.GetPlaylistId() != 24) return; //Only work in freeplay or LAN matches
 	BallWrapper ball = server.GetBall();
 	if(ball.IsNull()) return;
